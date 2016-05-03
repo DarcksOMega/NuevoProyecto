@@ -5,8 +5,10 @@
  */
 package unity2.ABCtrees;
 
+import java.awt.Graphics;
 import java.util.Vector;
 import java.util.Stack;
+import javax.swing.JFrame;
 
 /**
  *
@@ -279,6 +281,19 @@ public class tree {
        int a= Height(r.left);
        int b= Height(r.right);//UNDER CONSTRUCTION
        return Math.max(a, b)+1;
+   }
+   
+   public void rDraw(){
+       
+       JFrame f= new JFrame(){
+           public void paint (Graphics g){
+               rDraw(root,20,40,g);
+           }
+       };
+       f.setTitle("Arbol");
+       f.setSize(600,400);
+       f.setVisible(true);
+       f.setDefaultCloseOperation(operation);
    }
 
 }
