@@ -276,7 +276,9 @@ public class tree {
        
        if(r==null) return 0;
               
-       return 0;//UNDER CONSTRUCTION
+       int a= Height(r.left);
+       int b= Height(r.right);//UNDER CONSTRUCTION
+       return Math.max(a, b)+1;
    }
 
 }
