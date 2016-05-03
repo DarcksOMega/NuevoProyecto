@@ -53,6 +53,8 @@ public class Test {
        
        System.out.println("Print Leafs");
        t.PrintLeafsR();
+       
+       t.rDraw();
    }
    
    

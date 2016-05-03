@@ -301,6 +301,7 @@ public class tree {
     if (r==null) return x;
     x= rDraw(r.left,x,y+40,g);
     g.drawOval(x,y,30,30);
+    g.drawString(""+r.data,x+10,y+20);
     x= rDraw(r.right,x+30,y+40,g);
     return x;
     
