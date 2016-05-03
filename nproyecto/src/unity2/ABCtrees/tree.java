@@ -302,6 +302,7 @@ public class tree {
 
         JFrame f = new JFrame() {
             public void paint(Graphics g) {
+                g.clearRect(0,0, getWidth(), getHeight());
                 rDraw(root, 20, 40, g);
             }
         };
