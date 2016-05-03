@@ -293,7 +293,17 @@ public class tree {
        f.setTitle("Arbol");
        f.setSize(600,400);
        f.setVisible(true);
-       f.setDefaultCloseOperation(operation);
+       //f.setDefaultCloseOperation();
    }
+   
+   private int rDraw(Node r,int x,int y, Graphics g){
+    
+    if (r==null) return x;
+    x= rDraw(r.left,x,y+40,g);
+    g.drawOval(x,y,30,30);
+    x= rDraw(r.right,x+30,y+40,g);
+    return x;
+    
+}
 
 }
