@@ -5,10 +5,7 @@
  */
 package DoubleCircular;
 
-/**
- *
- * @author deivyponal
- */
+
 public class List {
     
     private Node head;

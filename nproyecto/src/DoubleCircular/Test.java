@@ -7,10 +7,7 @@ package DoubleCircular;
 
 import doublelist.list;
 
-/**
- *
- * @author deivyponal
- */
+
 public class Test {
     
     public static void main (String [] args){

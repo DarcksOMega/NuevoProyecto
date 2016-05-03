@@ -15,10 +15,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
-/**
- *
- * @author deivyponal
- */
 public class Zone extends JFrame {
     
     private Mine head,current;

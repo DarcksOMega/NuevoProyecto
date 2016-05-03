@@ -5,10 +5,6 @@
  */
 package unity0;
 
-/**
- *
- * @author deivyponal
- */
 public class list {
     
     private int data [];

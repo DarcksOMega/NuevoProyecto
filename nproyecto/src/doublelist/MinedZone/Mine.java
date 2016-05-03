@@ -11,10 +11,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
 
-/**
- *
- * @author deivyponal
- */
 public class Mine {
     
     protected int x,y;
