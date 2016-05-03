@@ -335,12 +335,13 @@ public class tree {
         rootInfo.xFinal = rightInfo.xFinal;
         
         if(r.left != null){
-            g.drawLine(rootInfo.xRoot+5, y+25, leftInfo.xRoot+15, y+50);
+            g.drawLine(rootInfo.xRoot+5, y+25, leftInfo.xRoot+15, y+40);
         }
         if(r.right != null){
-            g.drawLine(rootInfo.xRoot+25, y+25, rightInfo.xRoot+15, y+50);
+            g.drawLine(rootInfo.xRoot+25, y+25, rightInfo.xRoot+15, y+40);
         }
         return rootInfo;
+        
     }
 
 }
