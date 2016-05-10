@@ -55,6 +55,8 @@ public class Test {
        t.PrintLeafsR();
        
        t.rDraw();
+       
+       t.exist(r);
    }
    
    

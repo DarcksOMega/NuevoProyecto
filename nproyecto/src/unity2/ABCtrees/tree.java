@@ -302,7 +302,7 @@ public class tree {
 
         JFrame f = new JFrame() {
             public void paint(Graphics g) {
-                g.clearRect(0,0, getWidth(), getHeight());
+                g.clearRect(0, 0, getWidth(), getHeight());
                 rDraw(root, 20, 40, g);
             }
         };
@@ -311,8 +311,9 @@ public class tree {
         f.setVisible(true);
         //f.setDefaultCloseOperation();
     }
-    
-    class Info{
+
+    class Info {
+
         int xRoot, xFinal;
     }
 
@@ -323,26 +324,65 @@ public class tree {
         if (r == null) {
             return rootInfo;
         }
-        
+
         Info leftInfo, rightInfo;
-        
-        leftInfo=rDraw(r.left,x,y+40,g);
+
+        leftInfo = rDraw(r.left, x, y + 40, g);
         x = leftInfo.xFinal;
         g.drawOval(x, y, 30, 30);
         g.drawString("" + r.data, x + 10, y + 20);
         rootInfo.xRoot = x;
-        
-        rightInfo = rDraw(r.right, x+30, y+40, g);
+
+        rightInfo = rDraw(r.right, x + 30, y + 40, g);
         rootInfo.xFinal = rightInfo.xFinal;
-        
-        if(r.left != null){
-            g.drawLine(rootInfo.xRoot+5, y+25, leftInfo.xRoot+15, y+40);
+
+        if (r.left != null) {
+            g.drawLine(rootInfo.xRoot + 5, y + 25, leftInfo.xRoot + 15, y + 40);
         }
-        if(r.right != null){
-            g.drawLine(rootInfo.xRoot+25, y+25, rightInfo.xRoot+15, y+40);
+        if (r.right != null) {
+            g.drawLine(rootInfo.xRoot + 25, y + 25, rightInfo.xRoot + 15, y + 40);
         }
         return rootInfo;
-        
+
     }
 
+    private boolean isComplete(Node r) {
+        if (r == null) {
+            return true;
+        }
+        if ((r.left == null && r.right != null) || (r.left != null && r.right == null)) {
+            return false;
+        }
+        return isComplete(r.left) && isComplete(r.right);
+    }
+
+    public boolean exist(int d) {
+
+        Node aux = root;
+        while (aux != null) {
+            if (d == aux.data) {
+                return true;
+            } else if (d > aux.data) {
+                aux = aux.left;
+            } else {
+                aux = aux.right;
+            }
+        }
+        return false;
+    }
+
+    public void invert(Node r) {
+        if (r == null) {
+            return;
+        }
+        Node aux = r.left;
+        r.left = r.right;
+        r.right = aux;
+        invert(r.left);
+        invert(r.right);
+    }
+
+    public void prune() {
+
+    }
 }
