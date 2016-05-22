@@ -382,8 +382,73 @@ public class tree {
         invert(r.right);
     }
 
-    public void prune() {
-
+    public void prune(Node r) {
+        
+        if (r == null) {
+            return;
+        }
+        if (r.left == null && r.right != null) {
+            r.right = null;
+        } else if (r.left != null && r.right == null) {
+            r.left = null;
+        } else {
+            prune(r.left);
+            prune(r.right);
+        }
     }
     
+    public void remove (int d){
+        
+        Node aux = root, p = null;
+        while (aux != null) {
+            
+            if (d < aux.data) {
+                p = aux;
+                aux = aux.left;
+            }
+            else if (d > aux.data) {
+                p = aux;
+                aux = aux.right;
+            }
+            else {
+                if (aux == root) {
+                    if (root.left == null) {
+                        root = aux.right;
+                    }
+                    else {
+                        root = aux.left;
+                        Node q = root;
+                        while (q.right != null) {
+                            q = q.right;
+                        }
+                        q.right = aux.right;
+                    }
+                }
+                else {
+                    if (aux.left == null) {
+                        if (aux.data < p.data) {
+                            p.left = aux.right;
+                        }
+                        else {
+                            p.right = aux.right;
+                        }
+                    }
+                    else {
+                        if (aux.data < p.data) {
+                            p.left = aux.left;
+                        }
+                        else {
+                            p.right = aux.left;
+                        }                            
+                        Node q = aux.left;
+                        while (q.right != null) {
+                            q = q.right;
+                        }
+                        q.right = aux.right;
+                    }
+                }
+                return;
+            }
+        }
+    }
 }
